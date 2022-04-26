@@ -19,6 +19,7 @@ blockchain = [
 
 # Write code below that returns the number of KelloggCoin that each user has in their 
 # KelloggCoin "wallet".
+# puts blockchain
 
 # It should print out:
 # Ben's KelloggCoin balance is 14000
@@ -27,3 +28,32 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+ben_wallet = 0
+brian_wallet = 0
+evan_wallet = 0
+anthony_wallet = 0
+
+for transaction in blockchain
+  if transaction[:from_user] == "ben"
+    ben_wallet = ben_wallet - transaction[:amount]
+  elsif transaction[:from_user] == "brian"
+    brian_wallet = brian_wallet - transaction[:amount]
+  elsif transaction[:from_user] == "evan"
+    evan_wallet = evan_wallet - transaction[:amount]
+  elsif transaction[:from_user] == "anthony"
+    anthony_wallet = anthony_wallet - transaction[:amount]
+  end
+  if transaction[:to_user] == "ben"
+    ben_wallet = ben_wallet + transaction[:amount]
+  elsif transaction[:to_user] == "brian"
+    brian_wallet = brian_wallet + transaction[:amount]
+  elsif transaction[:to_user] == "evan"
+    evan_wallet = evan_wallet + transaction[:amount]
+  elsif transaction[:to_user] == "anthony"
+    anthony_wallet = anthony_wallet + transaction[:amount]
+  end
+
+end
+
+
+    puts "Ben's KelloggCoin balance is #{ben_wallet}"
